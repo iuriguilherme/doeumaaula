@@ -5,8 +5,7 @@
     <header class="container-fluid background">
       <div class="jumbotron text-center">
         {{if response.title:}}
-        <h1>{{=response.title}}
-          <small>{{=response.subtitle or ''}}</small></h1>
+        <h1>Depois eu tiro essa imagem que está aqui só pra distrair</h1>
         {{pass}}
       </div>
     </header>
@@ -14,39 +13,28 @@
 
 {{if 'message' in globals():}}
 <h2>{{=message}}</h2>
-<p class="lead">{{=T('How did you get here?')}}</p>
-<ol>
-  <li>{{=T('You are successfully running web2py')}}</li>
-  <li>{{=XML(T('You visited the url %s', A(request.env.path_info,_href=request.env.path_info)))}}</li>
-  <li>{{=XML(T('Which called the function %s located in the file %s',
-    (A(request.function+'()',_href='#'),
-    A('web2py/applications/%(application)s/controllers/%(controller)s.py' % request,
-    _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
-  <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
-    A('web2py/applications/%(application)s/views/%(controller)s/index.html' % request,
-    _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
-  <li>{{=T('You can modify this application and adapt it to your needs')}}</li>
-</ol>
+<p class="lead">
+{{=P(T('Este sistema pretende facilitar o acesso de escolas a aulas cadastradas no formulário "doe uma aula".'), _class="lead")}}
+{{=P(T('Se você chegou a este site por engano e não recebeu login e senha, saia imediatamente e só retorne se for explicitamente convidada(o).'), _class="lead")}}
+{{=P(T('Caso contrário, acesse a página de '), A('aulas', _href=URL('escolas','default','aulas')), T(' para ter acesso aos dados.'), _class="lead")}}
+</p>
+<h3>{{=T('Termos de uso')}}</h3>
+<p class="lead">
+{{=P(T('Este sistema é de uso restrito para pessoas ocupando escolas especificadas em São Paulo.'), _class="lead")}}
+{{=P(T('Se você for agente de qualquer polícia, como por exemplo, mas não limitado a Polícia Civil do Estado de São Paulo, Polícia Federal do Brasil, ou à Agência Brasileira de Inteligência, ou tiver qualquer tipo de vínculo explícito, implítico, direto ou indireto com a Secretaria Estadual de Educação do Estado de São Paulo, saia deste site imediatamente e nunca mais acesse, sob hipótese alguma.'), _class="lead")}}
+{{=P(T('Não é permitido para qualquer pessoa, sob nenhuma circunstância, tentar acessar os dados disponíveis de qualquer outra forma a não ser o método convencional de receber login e senha e acessar a página pertinente. A única exceção é para hackers que se comprometerem com a ética e corrigirem ou reportarem falhas de segurança.'), _class="lead")}}
+{{=P(T('Não cumprir estas disposições é anticonstitucional.'), _class="lead")}}
+{{=P(T('Só acesse este sistema se concordar com os termos de uso. Violações serão penalizadas no máximo permitido pela lei.'), _class="lead")}}
+</p>
 {{elif 'content' in globals():}}
 {{=content}}
-{{else:}}
-{{=BEAUTIFY(response._vars)}}
 {{pass}}
 
 {{block right_sidebar}}
 <div class="panel panel-info">
-  <div class="panel-heading"><h3 class="panel-title"><a class="btn-block"
-      href="{{=URL('admin','default','index')}}">
-      <i class="glyphicon glyphicon-cog"></i>
-      {{=T("admin")}}
-    </a></h3></div>
-  <div class="panel-body">
-    {{=T("Don't know what to do?")}}
-  </div>
-  <ul class="list-group">
-    <li class="list-group-item">{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
-    <li class="list-group-item"><a href="http://web2py.com">web2py.com</a></li>
-    <li class="list-group-item"><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
-  </ul>
+<div class="panel-heading"><h3 class="panel-title">Painel lateral</h3></div>
+<div class="panel-body">
+<p>Ainda não decidi o que escrever aqui</p>
+</div>
 </div>
 {{end}}
