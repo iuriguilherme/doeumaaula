@@ -17,35 +17,35 @@
 {{elif 'content' in globals():}}
 {{=content}}
 {{else:}}
-<table class="table table-striped table-bordered aulas">
+<div class="table-responsive">
+<table class="table table-striped table-bordered">
 <thead>
-<th>DATA DA POSTAGEM</th>
+<!-- <th>DATA DA POSTAGEM</th> -->
 <th>QUE AULA VC PODERIA DOAR EM UMA DAS ESCOLAS PÃšBLICAS OCUPADAS PELO ESTUDANTES SECUNDARISTAS ?</th>
 <th>SUA AULA PRECISA DE ALGUMA CONDIÃ‡ÃO ESPECIAL PARA SE REALIZAR ?</th>
 <th>DURAÇÃO</th>
 <th>EM QUAL ESCOLA OCUPADA VC PODE APLICAR SUA ATIVIDADE ?</th>
+<!--
 <th>QUAL O SEU NOME OU O DO GRUPO QUE VC FAZ PARTE ?</th>
 <th>EMAIL</th>
 <th>TELEFONE</th>
 <th>TELEFONE 2</th>
 <th>OUTROS CONTATOS (FACEBOOK)</th>
+-->
+<th>CONTATO</th>
 </thead>
 <tbody>
 {{for aula in aulas:}}
 <tr>
-{{=TD(XML(aula['data_envio'], sanitize=True))}}
 {{=TD(XML(aula['aula'], sanitize=True))}}
 {{=TD(XML(aula['condicao'], sanitize=True))}}
 {{=TD(XML(aula['duracao'], sanitize=True))}}
 {{=TD(XML(aula['escola'], sanitize=True))}}
-{{=TD(XML(aula['nome'], sanitize=True))}}
-{{=TD(XML(aula['email'], sanitize=True))}}
-{{=TD(XML(aula['telefone'], sanitize=True))}}
-{{=TD(XML(aula['telefone2'], sanitize=True))}}
-{{=TD(XML(aula['contato'], sanitize=True),XML(aula['contato2'], sanitize=True))}}
+{{=TD(P('vai ter um botão'))}}
 </tr>
 {{pass}}
 </tbody>
 </table>
+</div>
 {{pass}}
 
