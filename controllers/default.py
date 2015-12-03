@@ -64,3 +64,6 @@ def aulas():
 	aulas = db().select(db.aula.ALL, orderby=~db.aula.data_envio, limitby=(offset_inicio,offset_fim))
 	return dict(aulas=aulas)
 
+def contato():
+	return request.vars.name
+

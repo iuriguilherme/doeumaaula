@@ -17,6 +17,7 @@
 {{elif 'content' in globals():}}
 {{=content}}
 {{else:}}
+<div id="exibir"></div>
 <div class="table-responsive">
 <table class="table table-striped table-bordered">
 <thead>
@@ -41,7 +42,7 @@
 {{=TD(XML(aula['condicao'], sanitize=True))}}
 {{=TD(XML(aula['duracao'], sanitize=True))}}
 {{=TD(XML(aula['escola'], sanitize=True))}}
-{{=TD(P('vai ter um botão'))}}
+<td><form><input type="button" class="btn btn-success" value="contato" name="merda" onmouseover="ajax('{{=URL('escolas', 'default', 'contato')}}', ['name'], 'exibir')" /></form></td>
 </tr>
 {{pass}}
 </tbody>
